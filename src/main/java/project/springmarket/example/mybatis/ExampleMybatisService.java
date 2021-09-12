@@ -8,9 +8,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class ExampleMybatisService {
-    private final ExampleMybatis exampleMybatis;
+    private final ExampleMybatisRepository exampleMybatisRepository;
 
-    public List<String> find() {
-        return exampleMybatis.find();
+    public List<String> find(){
+        return exampleMybatisRepository.find();
     }
 }
