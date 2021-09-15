@@ -1,11 +1,11 @@
 package project.springmarket.mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
-import project.springmarket.model.product.Product;
+import project.springmarket.model.product.ProductVO;
 
 import java.util.List;
 
 @Mapper
 public interface ProductMapper {
-    List<Product> findProducts(int addressNo);
+    List<ProductVO> findProducts(int addressNo);
 }
