@@ -1,10 +1,9 @@
 package project.springmarket.repository;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import project.springmarket.model.product.Product;
-import project.springmarket.mybatis.ProductMapper;
+import project.springmarket.model.product.ProductVO;
+import project.springmarket.mapper.ProductMapper;
 
 import java.util.List;
 
@@ -13,8 +12,12 @@ import java.util.List;
 public class ProductRepository {
     private final ProductMapper productMapper;
 
-    public List<Product> findProducts(int addressNo){
+    public List<ProductVO> findProducts(int addressNo) {
         return productMapper.findProducts(addressNo);
+    }
+
+    public List<ProductVO> findProductsUsingPosition(double lat, double lng) {
+        return productMapper.findProductsUsingPosition(lat,lng);
     }
 
 }

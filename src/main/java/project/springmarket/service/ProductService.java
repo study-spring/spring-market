@@ -2,7 +2,7 @@ package project.springmarket.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.springmarket.model.product.Product;
+import project.springmarket.model.product.ProductVO;
 import project.springmarket.repository.ProductRepository;
 
 import java.util.List;
@@ -17,7 +17,11 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> findProducts(int addressNo) {
+    public List<ProductVO> findProducts(int addressNo) {
         return productRepository.findProducts(addressNo);
+    }
+
+    public List<ProductVO> findProductsUsingPosition(double lat, double lng) {
+        return productRepository.findProductsUsingPosition(lat,lng);
     }
 }
