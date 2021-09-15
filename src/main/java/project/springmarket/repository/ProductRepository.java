@@ -2,6 +2,7 @@ package project.springmarket.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import project.springmarket.model.product.FindProductDTO;
 import project.springmarket.model.product.ProductVO;
 import project.springmarket.mapper.ProductMapper;
 
@@ -16,8 +17,8 @@ public class ProductRepository {
         return productMapper.findProducts(addressNo);
     }
 
-    public List<ProductVO> findProductsUsingPosition(double lat, double lng) {
-        return productMapper.findProductsUsingPosition(lat,lng);
+    public List<ProductVO> findProductsUsingPosition(FindProductDTO findProductDTO) {
+        return productMapper.findProductsUsingPosition(findProductDTO);
     }
 
 }

@@ -27,7 +27,7 @@
         From product
         Where address_no IN (select emd_cd
                              from tmp
-                             where st_intersects(st_buffer(point(#{lat}, #{lng}), 0.001),
+                             where st_intersects(st_buffer(point(#{lat}, #{lng}), #{distance}),
                                                  zone_polygon))
     </select>
 </mapper>

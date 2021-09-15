@@ -31,7 +31,7 @@ public class DatasourceConfig {
                 getResources("classpath*:mybatis/mapper/**/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
-    
+
     @Bean
     public SqlSessionTemplate sqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory());

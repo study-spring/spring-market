@@ -2,6 +2,7 @@ package project.springmarket.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project.springmarket.model.product.FindProductDTO;
 import project.springmarket.model.product.ProductVO;
 import project.springmarket.repository.ProductRepository;
 
@@ -21,7 +22,7 @@ public class ProductService {
         return productRepository.findProducts(addressNo);
     }
 
-    public List<ProductVO> findProductsUsingPosition(double lat, double lng) {
-        return productRepository.findProductsUsingPosition(lat,lng);
+    public List<ProductVO> findProductsUsingPosition(FindProductDTO findProductDTO) {
+        return productRepository.findProductsUsingPosition(findProductDTO);
     }
 }
