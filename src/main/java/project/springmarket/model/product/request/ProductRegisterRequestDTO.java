@@ -1,4 +1,4 @@
-package project.springmarket.model.product;
+package project.springmarket.model.product.request;
 
 import lombok.*;
 

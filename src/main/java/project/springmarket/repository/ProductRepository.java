@@ -3,10 +3,10 @@ package project.springmarket.repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import project.springmarket.model.product.request.FindProductDTO;
-import project.springmarket.model.product.ProductRegisterRequestDTO;
+import project.springmarket.model.product.request.ProductRegisterRequestDTO;
 import project.springmarket.model.product.ProductVO;
 import project.springmarket.mapper.ProductMapper;
-import project.springmarket.model.product.response.FindProductResponse;
+import project.springmarket.model.product.response.FindProductResponseDTO;
 
 import java.util.List;
 
@@ -15,18 +15,18 @@ import java.util.List;
 public class ProductRepository {
     private final ProductMapper productMapper;
 
-    public FindProductResponse findProducts(int addressNo) {
+    public FindProductResponseDTO findProducts(int addressNo) {
         List<ProductVO> products = productMapper.findProducts(addressNo);
-        return FindProductResponse
+        return FindProductResponseDTO
                 .builder()
                 .products(products)
                 .build();
     }
 
-    public FindProductResponse findProductsUsingPosition(FindProductDTO findProductDTO) {
+    public FindProductResponseDTO findProductsUsingPosition(FindProductDTO findProductDTO) {
         List<ProductVO> products = productMapper.findProductsUsingPosition(findProductDTO);
 
-        return FindProductResponse
+        return FindProductResponseDTO
                 .builder()
                 .products(products)
                 .build();

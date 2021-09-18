@@ -37,7 +37,7 @@
                                                  zone_polygon))
     </select>
 
-    <insert id="registerProduct" parameterType="project.springmarket.model.product.ProductRegisterRequestDTO">
+    <insert id="registerProduct" parameterType="project.springmarket.model.product.request.ProductRegisterRequestDTO">
         INSERT INTO product (seller_no, product_name, description, product_images,
                              category_no, address_no)
         values ( #{sellerNo}, #{productName}, #{description}

@@ -2,9 +2,8 @@ package project.springmarket.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import project.springmarket.model.product.request.FindProductDTO;
-import project.springmarket.model.product.ProductRegisterRequestDTO;
+import project.springmarket.model.product.request.ProductRegisterRequestDTO;
 import project.springmarket.model.product.ProductVO;
-import project.springmarket.model.product.response.FindProductResponse;
 
 import java.util.List;
 

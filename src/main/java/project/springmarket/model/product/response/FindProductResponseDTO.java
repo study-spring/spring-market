@@ -10,6 +10,6 @@ import java.util.List;
 @Getter
 @Builder
 @ToString
-public class FindProductResponse {
+public class FindProductResponseDTO {
     private List<ProductVO> products;
 }
