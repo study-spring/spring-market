@@ -5,12 +5,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import project.springmarket.model.product.FindProductDTO;
+import project.springmarket.model.product.ProductRegisterRequestDTO;
+import project.springmarket.model.product.request.FindProductDTO;
 import project.springmarket.model.product.ProductVO;
+import project.springmarket.model.product.response.FindProductResponse;
 import project.springmarket.service.ProductService;
 
 import javax.validation.Valid;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,13 +37,17 @@ public class ProductController {
     }
 
     @GetMapping("/address/{addressNo}")
-    public List<ProductVO> findProducts(@PathVariable("addressNo") int addressNo) {
+    public FindProductResponse findProducts(@PathVariable("addressNo") int addressNo) {
         return productService.findProducts(addressNo);
     }
 
     @PostMapping("/address/")
-    public List<ProductVO> findProductsUsingPosition(@RequestBody @Valid FindProductDTO findProductDTO) {
+    public FindProductResponse findProductsUsingPosition(@RequestBody @Valid FindProductDTO findProductDTO) {
         return productService.findProductsUsingPosition(findProductDTO);
     }
 
+    @PostMapping("/register")
+    public boolean registerProduct(@RequestBody @Valid ProductRegisterRequestDTO productRegisterRequestDTO) {
+        return productService.registerProduct(productRegisterRequestDTO);
+    }
 }

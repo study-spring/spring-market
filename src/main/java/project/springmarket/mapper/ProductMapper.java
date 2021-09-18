@@ -1,17 +1,18 @@
 package project.springmarket.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import project.springmarket.model.product.FindProductDTO;
+import project.springmarket.model.product.request.FindProductDTO;
+import project.springmarket.model.product.ProductRegisterRequestDTO;
 import project.springmarket.model.product.ProductVO;
+import project.springmarket.model.product.response.FindProductResponse;
 
 import java.util.List;
 
 @Mapper
 public interface ProductMapper {
-    List<ProductVO> findProducts(int addressNo);
+    List<ProductVO> findProducts(int addressNo); // 상품조회(사용자 주소기반)
 
-    List<ProductVO> findProductsUsingPosition(FindProductDTO findProductDTO);
+    List<ProductVO> findProductsUsingPosition(FindProductDTO findProductDTO); // 상품조회(사용자 위치기반)
 
-
+    int registerProduct(ProductRegisterRequestDTO productRegisterRequestDTO); // 상품등록
 }

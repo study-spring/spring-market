@@ -18,8 +18,14 @@
 
     <select id="findProducts" resultMap="products">
         select *
-        FROM product
-        WHERE address_no = #{addressNo}
+        from product
+        where address_no in
+              (select emd_cd
+               from tmp
+               where ST_intersects(
+                             (select zone_polygon
+                              from tmp
+                              where emd_cd = #{addressNo}), zone_polygon));
     </select>
 
     <select id="findProductsUsingPosition" resultMap="products">
@@ -30,4 +36,11 @@
                              where st_intersects(st_buffer(point(#{lat}, #{lng}), #{distance}),
                                                  zone_polygon))
     </select>
+
+    <insert id="registerProduct" parameterType="project.springmarket.model.product.ProductRegisterRequestDTO">
+        INSERT INTO product (seller_no, product_name, description, product_images,
+                             category_no, address_no)
+        values ( #{sellerNo}, #{productName}, #{description}
+               , #{productImages}, #{categoryNo}, #{addressNo})
+    </insert>
 </mapper>

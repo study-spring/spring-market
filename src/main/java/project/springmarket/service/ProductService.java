@@ -2,8 +2,10 @@ package project.springmarket.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import project.springmarket.model.product.FindProductDTO;
+import project.springmarket.model.product.request.FindProductDTO;
+import project.springmarket.model.product.ProductRegisterRequestDTO;
 import project.springmarket.model.product.ProductVO;
+import project.springmarket.model.product.response.FindProductResponse;
 import project.springmarket.repository.ProductRepository;
 
 import java.util.List;
@@ -18,11 +20,15 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<ProductVO> findProducts(int addressNo) {
+    public FindProductResponse findProducts(int addressNo) {
         return productRepository.findProducts(addressNo);
     }
 
-    public List<ProductVO> findProductsUsingPosition(FindProductDTO findProductDTO) {
+    public FindProductResponse findProductsUsingPosition(FindProductDTO findProductDTO) {
         return productRepository.findProductsUsingPosition(findProductDTO);
+    }
+
+    public boolean registerProduct(ProductRegisterRequestDTO productRegisterRequestDTO) {
+        return productRepository.registerProduct(productRegisterRequestDTO);
     }
 }
