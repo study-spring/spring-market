@@ -1,26 +1,19 @@
 package project.springmarket.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 import project.springmarket.model.member.Member;
-import project.springmarket.service.MemberService;
+import project.springmarket.service.MemberMybatisService;
 
 @RestController
 @RequestMapping("/members")
+@RequiredArgsConstructor
 public class MemberController {
 
-    private final MemberService memberService;
+    private final MemberMybatisService memberMybatisService;
 
-    @Autowired
-    public MemberController(MemberService memberService) {
-        this.memberService = memberService;
-    }
-
-    @GetMapping("")
-    public Member find(){
-        return memberService.find();
+    @GetMapping("/{id}")
+    public Member findById(@PathVariable("id") String id){
+        return memberMybatisService.findById(id);
     }
 }
