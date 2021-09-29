@@ -2,14 +2,12 @@ package project.springmarket.model.product.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
-
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 
 @AllArgsConstructor
 @Getter
-public class FindProductDTO {
+public class FindProductRequestDTO {
     @Range(min = 32, max = 39, message = "lat value must between 32 and 39")
     private double lat;
 
