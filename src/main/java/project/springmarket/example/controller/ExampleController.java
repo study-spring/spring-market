@@ -31,8 +31,8 @@ public class ExampleController {
         return exampleService.find(2);
     }
 
-    // 해당 Controller에서 발생하는 Exception 처리
-    // 이렇게 Controller마다 정의할 수도 있고 ControllerAdvice를 정의해서 할 수 있음(ControllerAdvice가 한번에 관리하기 편해서 추천)
+    // 해당 Controller 에서 발생하는 Exception 처리
+    // 이렇게 Controller 마다 정의할 수도 있고 ControllerAdvice를 정의해서 할 수 있음(ControllerAdvice가 한번에 관리하기 편해서 추천)
     // 침고 : https://www.baeldung.com/exception-handling-for-rest-with-spring
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)

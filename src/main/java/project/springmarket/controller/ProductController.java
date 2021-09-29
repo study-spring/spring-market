@@ -5,8 +5,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import project.springmarket.model.product.ProductVO;
 import project.springmarket.model.product.request.ProductRegisterRequestDTO;
-import project.springmarket.model.product.request.FindProductDTO;
+import project.springmarket.model.product.request.FindProductRequestDTO;
 import project.springmarket.model.product.response.FindProductResponseDTO;
 import project.springmarket.service.ProductService;
 
@@ -27,22 +28,28 @@ public class ProductController {
         if (bindingResult.hasErrors()) {
             List<FieldError> errors = bindingResult.getFieldErrors();
 
-            errors.forEach(err -> {
-                map.put(err.getField(),
-                        err.getDefaultMessage() + " >> input value : " + err.getRejectedValue());
-            });
+            errors.forEach(err -> map.put(err.getField(),
+                    err.getDefaultMessage() + " >> input value : " + err.getRejectedValue()));
         }
         return map;
     }
 
     @GetMapping("/address/{addressNo}")
     public FindProductResponseDTO findProducts(@PathVariable("addressNo") int addressNo) {
-        return productService.findProducts(addressNo);
+        List<ProductVO> products = productService.findProducts(addressNo);
+        return FindProductResponseDTO
+                .builder()
+                .products(products)
+                .build();
     }
 
-    @PostMapping("/address/")
-    public FindProductResponseDTO findProductsUsingPosition(@RequestBody @Valid FindProductDTO findProductDTO) {
-        return productService.findProductsUsingPosition(findProductDTO);
+    @PostMapping("/address")
+    public FindProductResponseDTO findProductsUsingPosition(@RequestBody @Valid FindProductRequestDTO findProductRequestDTO) {
+        List<ProductVO> products = productService.findProductsUsingPosition(findProductRequestDTO);
+        return FindProductResponseDTO
+                .builder()
+                .products(products)
+                .build();
     }
 
     @PostMapping("/register")
