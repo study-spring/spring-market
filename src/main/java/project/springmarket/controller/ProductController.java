@@ -22,18 +22,6 @@ import java.util.Map;
 public class ProductController {
     private final ProductService productService;
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, Object> handleMethodArgumentNotValidException(BindingResult bindingResult) {
-        Map<String, Object> map = new HashMap<>();
-        if (bindingResult.hasErrors()) {
-            List<FieldError> errors = bindingResult.getFieldErrors();
-
-            errors.forEach(err -> map.put(err.getField(),
-                    err.getDefaultMessage() + " >> input value : " + err.getRejectedValue()));
-        }
-        return map;
-    }
-
     @GetMapping("/address/{addressNo}")
     public FindProductResponseDTO findProducts(@PathVariable("addressNo") int addressNo) {
         List<ProductVO> products = productService.findProducts(addressNo);
