@@ -6,7 +6,6 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import project.springmarket.model.product.ProductVO;
-import project.springmarket.model.product.request.ProductRegisterRequestDTO;
 import project.springmarket.model.product.request.FindProductRequestDTO;
 import project.springmarket.model.product.response.FindProductResponseDTO;
 import project.springmarket.service.ProductService;
