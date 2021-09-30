@@ -24,6 +24,6 @@ public class ProductVO {
 
     private ProductStatus productStatus ;
     private String ProductImages;
-    private int category;
+    private int categoryNo;
     private int addressNo;
 }
