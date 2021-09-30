@@ -3,7 +3,6 @@ package project.springmarket.repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import project.springmarket.model.product.request.FindProductRequestDTO;
-import project.springmarket.model.product.request.ProductRegisterRequestDTO;
 import project.springmarket.model.product.ProductVO;
 import project.springmarket.mapper.ProductMapper;
 

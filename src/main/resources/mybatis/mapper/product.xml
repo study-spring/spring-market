@@ -11,13 +11,14 @@
         <result column="product_name" property="productName"/>
         <result column="description" property="description"/>
         <result column="product_images" property="ProductImages"/>
-        <result column="category_no" property="category"/>
+        <result column="category_no" property="categoryNo"/>
         <result column="product_status" property="productStatus"/>
         <result column="address_no" property="addressNo"/>
     </resultMap>
 
     <select id="findProducts" resultMap="products">
-        select *
+        select product_no, seller_no,buyer_no,product_name,description,product_status,product_images,
+               category_no,address_no
         from product
         where address_no in
               (select emd_cd
@@ -29,7 +30,8 @@
     </select>
 
     <select id="findProductsUsingPosition" resultMap="products">
-        select *
+        select product_no, seller_no,buyer_no,product_name,description,product_status,product_images,
+               category_no,address_no
         From product
         Where address_no IN (select emd_cd
                              from address
@@ -37,7 +39,7 @@
                                                  zone_polygon))
     </select>
 
-    <insert id="registerProduct" parameterType="project.springmarket.model.product.request.ProductRegisterRequestDTO">
+    <insert id="registerProduct" parameterType="project.springmarket.model.product.ProductVO">
         INSERT INTO product (seller_no, product_name, description, product_images,
                              category_no, address_no)
         values ( #{sellerNo}, #{productName}, #{description}

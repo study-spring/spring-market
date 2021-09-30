@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project.springmarket.model.product.ProductVO;
 import project.springmarket.model.product.request.FindProductRequestDTO;
-import project.springmarket.model.product.request.ProductRegisterRequestDTO;
 import project.springmarket.repository.ProductRepository;
 
 import java.util.List;
