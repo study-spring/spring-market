@@ -22,7 +22,7 @@ public class ProductRepository {
         return productMapper.findProductsUsingPosition(findProductRequestDTO);
     }
 
-    public boolean registerProduct(ProductRegisterRequestDTO productRegisterRequestDTO) {
-        return productMapper.registerProduct(productRegisterRequestDTO) > 0; // 1개이상의 상품이 등록되었는가
+    public boolean registerProduct(ProductVO productVO) {
+        return productMapper.registerProduct(productVO) > 0; // 1개이상의 상품이 등록되었는가
     }
 }

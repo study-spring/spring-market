@@ -13,5 +13,5 @@ public interface ProductMapper {
 
     List<ProductVO> findProductsUsingPosition(FindProductRequestDTO findProductRequestDTO); // 상품조회(사용자 위치기반)
 
-    int registerProduct(ProductRegisterRequestDTO productRegisterRequestDTO); // 상품등록
+    int registerProduct(ProductVO productVO); // 상품등록
 }

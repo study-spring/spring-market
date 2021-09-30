@@ -24,7 +24,7 @@ public class ProductService {
         return productRepository.findProductsUsingPosition(findProductRequestDTO);
     }
 
-    public boolean registerProduct(ProductRegisterRequestDTO productRegisterRequestDTO) {
-        return productRepository.registerProduct(productRegisterRequestDTO);
+    public boolean registerProduct(ProductVO productVO) {
+        return productRepository.registerProduct(productVO);
     }
 }

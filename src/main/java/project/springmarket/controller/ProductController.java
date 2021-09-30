@@ -18,30 +18,21 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/products")
 public class ProductController {
     private final ProductService productService;
 
-    @GetMapping("/address/{addressNo}")
+    @GetMapping("/products/address/{addressNo}")
     public FindProductResponseDTO findProducts(@PathVariable("addressNo") int addressNo) {
-        List<ProductVO> products = productService.findProducts(addressNo);
-        return FindProductResponseDTO
-                .builder()
-                .products(products)
-                .build();
+        return new FindProductResponseDTO(productService.findProducts(addressNo));
     }
 
-    @PostMapping("/address")
+    @PostMapping("/products/address")
     public FindProductResponseDTO findProductsUsingPosition(@RequestBody @Valid FindProductRequestDTO findProductRequestDTO) {
-        List<ProductVO> products = productService.findProductsUsingPosition(findProductRequestDTO);
-        return FindProductResponseDTO
-                .builder()
-                .products(products)
-                .build();
+        return new FindProductResponseDTO(productService.findProductsUsingPosition(findProductRequestDTO));
     }
 
-    @PostMapping("/register")
-    public boolean registerProduct(@RequestBody @Valid ProductRegisterRequestDTO productRegisterRequestDTO) {
-        return productService.registerProduct(productRegisterRequestDTO);
+    @PostMapping("/products")
+    public boolean registerProduct(@RequestBody ProductVO productVO) {
+        return productService.registerProduct(productVO);
     }
 }
