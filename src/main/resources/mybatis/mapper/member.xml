@@ -8,7 +8,7 @@
         <result column="member_no" property="memberNo"/>
         <result column="id" property="memberID"/>
         <result column="pw" property="memberPW"/>
-        <result column="addressNo" property="address_no"/>
+        <result column="address_no" property="addressNo"/>
 
     </resultMap>
 
@@ -16,5 +16,10 @@
     <select id="findById" parameterType="string" resultMap="memberResultMap">
         select * from member where id = #{id}
     </select>
+
+    <insert id="createMember"  useGeneratedKeys="true" keyColumn="member_no"
+            keyProperty="memberNo" parameterType="map">
+        INSERT INTO member (id, pw, address_no) VALUES (#{id}, #{pw}, #{addressNo});
+    </insert>
 
 </mapper>

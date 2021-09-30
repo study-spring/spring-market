@@ -6,6 +6,7 @@ import project.springmarket.model.member.Member;
 import project.springmarket.repository.MemberMybatisRepository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 생성자 주입
@@ -20,5 +21,10 @@ public class MemberMybatisService {
 
     public Member findById(String id){
         return memberMybatisRepository.findById(id);
+    }
+
+    public void createMember(Map<String, Object> paramMap){
+        memberMybatisRepository.createMember(paramMap);
+        return;
     }
 }
