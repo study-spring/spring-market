@@ -8,8 +8,11 @@ import project.springmarket.model.product.ProductVO;
 import java.util.List;
 
 @Getter
-@Builder
 @ToString
 public class FindProductResponseDTO {
     private List<ProductVO> products;
+
+    public FindProductResponseDTO(List<ProductVO> products) {
+        this.products = products;
+    }
 }
