@@ -19,7 +19,7 @@ public class MemberController {
         return memberMybatisService.findById(id);
     }
 
-    @PostMapping("/new-user")
+    @PostMapping("")
     public String createMember(@RequestParam Map<String, Object> paramMap){
         memberMybatisService.createMember(paramMap);
         return "회원 가입 완료";
