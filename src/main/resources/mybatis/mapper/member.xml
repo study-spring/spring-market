@@ -14,7 +14,7 @@
 
 
     <select id="findById" parameterType="string" resultMap="memberResultMap">
-        select * from member where id = #{id}
+        select member_no, id, pw, address_no from member where id = #{id}
     </select>
 
     <insert id="insertMember"  useGeneratedKeys="true" keyColumn="member_no"
