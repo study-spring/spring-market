@@ -17,7 +17,7 @@
         select * from member where id = #{id}
     </select>
 
-    <insert id="createMember"  useGeneratedKeys="true" keyColumn="member_no"
+    <insert id="insertMember"  useGeneratedKeys="true" keyColumn="member_no"
             keyProperty="memberNo" parameterType="map">
         INSERT INTO member (id, pw, address_no) VALUES (#{id}, #{pw}, #{addressNo});
     </insert>

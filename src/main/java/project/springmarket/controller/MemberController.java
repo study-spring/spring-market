@@ -20,8 +20,8 @@ public class MemberController {
     }
 
     @PostMapping("")
-    public String createMember(@RequestParam Map<String, Object> paramMap){
-        memberMybatisService.createMember(paramMap);
+    public String insertMember(@RequestParam Map<String, Object> paramMap){
+        memberMybatisService.insertMember(paramMap);
         return "회원 가입 완료";
     } // http 파라미터 이름과 변수 이름이 같으면 @RequestParam 생략 가능
 }

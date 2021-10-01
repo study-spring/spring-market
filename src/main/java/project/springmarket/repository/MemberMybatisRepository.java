@@ -17,8 +17,8 @@ public class MemberMybatisRepository {
         return memberMapper.findById(id);
     }
 
-    public void createMember(Map<String, Object> paramMap){
-        memberMapper.createMember(paramMap);
+    public void insertMember(Map<String, Object> paramMap){
+        memberMapper.insertMember(paramMap);
         return;
     }
 }

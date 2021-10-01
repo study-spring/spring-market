@@ -10,5 +10,5 @@ public interface MemberMapper {
 
     Member findById(String id);
 
-    void createMember(Map<String, Object> paramMap);
+    void insertMember(Map<String, Object> paramMap);
 }

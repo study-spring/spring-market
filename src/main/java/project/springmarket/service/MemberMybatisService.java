@@ -23,8 +23,8 @@ public class MemberMybatisService {
         return memberMybatisRepository.findById(id);
     }
 
-    public void createMember(Map<String, Object> paramMap){
-        memberMybatisRepository.createMember(paramMap);
+    public void insertMember(Map<String, Object> paramMap){
+        memberMybatisRepository.insertMember(paramMap);
         return;
     }
 }
