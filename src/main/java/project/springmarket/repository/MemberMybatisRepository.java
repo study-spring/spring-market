@@ -17,8 +17,8 @@ public class MemberMybatisRepository {
         return memberMapper.findById(id);
     }
 
-    public void insertMember(Map<String, Object> paramMap){
-        memberMapper.insertMember(paramMap);
-        return;
+    public int insertMember(Member member){
+        int insertSuccessCount  = memberMapper.insertMember(member);
+        return insertSuccessCount;
     }
 }

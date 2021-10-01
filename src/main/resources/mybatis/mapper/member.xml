@@ -18,8 +18,8 @@
     </select>
 
     <insert id="insertMember"  useGeneratedKeys="true" keyColumn="member_no"
-            keyProperty="memberNo" parameterType="map">
-        INSERT INTO member (id, pw, address_no) VALUES (#{id}, #{pw}, #{addressNo});
+            keyProperty="memberNo" parameterType="project.springmarket.model.member.Member">
+        INSERT INTO member (id, pw, address_no) VALUES (#{memberID}, #{memberPW}, #{addressNo});
     </insert>
 
 </mapper>
