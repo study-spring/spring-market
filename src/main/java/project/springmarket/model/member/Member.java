@@ -9,7 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Member {
     private int memberNo;
-    private String memberID;
-    private String memberPW;
-    private int addressNo;
+    private String memberLoginID;
+    private String memberLoginPW;
+    private int addressCodeNo;
 }
