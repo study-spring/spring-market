@@ -23,8 +23,8 @@ public class MemberMybatisService {
         return memberMybatisRepository.findById(id);
     }
 
-    public int insertMember(Member member){
-        int insertSuccessCount = memberMybatisRepository.insertMember(member);
-        return insertSuccessCount;
+    public void insertMember(Member member){
+        memberMybatisRepository.insertMember(member);
     }
 }
+

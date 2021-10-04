@@ -10,5 +10,6 @@ public interface MemberMapper {
 
     Member findById(String id);
 
-    int insertMember(Member member);
+    void insertMember(Member member);
 }
+

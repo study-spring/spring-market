@@ -20,9 +20,8 @@ public class MemberController {
     }
 
     @PostMapping("")
-    public int insertMember(@RequestBody Member member){
-        // myBatis의 데이터 변경(update, delete, insert)의 리턴값은 정상 변경이 된 레코드의 수
-        int insertSuccessCount = memberMybatisService.insertMember(member);
-        return insertSuccessCount;
+    public void insertMember(@RequestBody Member member){
+        memberMybatisService.insertMember(member);
     }
 }
+
