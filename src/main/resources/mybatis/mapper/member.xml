@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project.springmarket.mybatis.MemberMapper">
+
+    <resultMap id="memberResultMap" type="project.springmarket.model.member.Member">
+        <result column="member_no" property="memberNo"/>
+        <result column="id" property="memberLoginID"/>
+        <result column="pw" property="memberLoginPW"/>
+        <result column="address_no" property="addressCodeNo"/>
+
+    </resultMap>
+
+
+    <select id="findById" parameterType="string" resultMap="memberResultMap">
+        select member_no, id, pw, address_no from member where id = #{id}
+    </select>
+
+    <insert id="insertMember"  useGeneratedKeys="true" keyColumn="member_no"
+            keyProperty="memberNo" parameterType="project.springmarket.model.member.Member">
+        INSERT INTO member (id, pw, address_no) VALUES (#{memberLoginID}, #{memberLoginPW}, #{addressCodeNo});
+    </insert>
+
+</mapper>
