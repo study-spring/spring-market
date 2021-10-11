@@ -9,7 +9,6 @@
         <result column="id" property="memberLoginID"/>
         <result column="pw" property="memberLoginPW"/>
         <result column="address_no" property="addressCodeNo"/>
-
     </resultMap>
 
 
@@ -21,5 +20,9 @@
             keyProperty="memberNo" parameterType="project.springmarket.model.member.Member">
         INSERT INTO member (id, pw, address_no) VALUES (#{memberLoginID}, #{memberLoginPW}, #{addressCodeNo});
     </insert>
+
+    <update id = "updateMember" parameterType="Map">
+        UPDATE member set address_no = #{addressCodeNo} where id = #{id};
+    </update>
 
 </mapper>

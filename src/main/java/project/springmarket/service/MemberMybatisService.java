@@ -3,8 +3,10 @@ package project.springmarket.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.springmarket.model.member.Member;
+import project.springmarket.model.member.MemberAddressOnly;
 import project.springmarket.repository.MemberMybatisRepository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,5 +28,10 @@ public class MemberMybatisService {
     public void insertMember(Member member){
         memberMybatisRepository.insertMember(member);
     }
+
+    public void updateMember(Map paramMap){
+        memberMybatisRepository.updateMember(paramMap);
+    }
+
 }
 
