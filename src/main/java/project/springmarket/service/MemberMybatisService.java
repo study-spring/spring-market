@@ -3,12 +3,7 @@ package project.springmarket.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.springmarket.model.member.Member;
-import project.springmarket.model.member.MemberAddressOnly;
 import project.springmarket.repository.MemberMybatisRepository;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 생성자 주입
@@ -29,9 +24,8 @@ public class MemberMybatisService {
         memberMybatisRepository.insertMember(member);
     }
 
-    public void updateMember(Map paramMap){
-        memberMybatisRepository.updateMember(paramMap);
+    public void updateMember(Member member){
+        memberMybatisRepository.updateMember(member);
     }
-
 }
 

@@ -24,10 +24,17 @@
         VALUES (#{memberLoginID}, #{memberLoginPW}, #{addressCodeNo});
     </insert>
 
-    <update id = "updateMember" parameterType="Map">
+    <update id = "updateMember" parameterType="project.springmarket.model.member.Member">
         UPDATE member
-        SET address_no = #{addressCodeNo}
-        WHERE id = #{id};
+        <set>
+            <if test="memberLoginPW != null and memberLoginPW != ''">
+                pw = #{memberLoginPW},
+            </if>
+            <if test="addressCodeNo != null and addressCodeNo != 0">
+                address_no = #{addressCodeNo},
+            </if>
+        </set>
+        WHERE id = #{memberLoginID};
     </update>
 
 </mapper>

@@ -2,10 +2,6 @@ package project.springmarket.mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
 import project.springmarket.model.member.Member;
-import project.springmarket.model.member.MemberAddressOnly;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Mapper
 public interface MemberMapper {
@@ -14,6 +10,6 @@ public interface MemberMapper {
 
     void insertMember(Member member);
 
-    void updateMember(Map paramMap);
+    void updateMember(Member member);
 }
 
