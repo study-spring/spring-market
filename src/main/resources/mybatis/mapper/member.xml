@@ -13,16 +13,21 @@
 
 
     <select id="findById" parameterType="string" resultMap="memberResultMap">
-        select member_no, id, pw, address_no from member where id = #{id}
+        SELECT member_no, id, pw, address_no
+        FROM member
+        WHERE id = #{id}
     </select>
 
     <insert id="insertMember"  useGeneratedKeys="true" keyColumn="member_no"
             keyProperty="memberNo" parameterType="project.springmarket.model.member.Member">
-        INSERT INTO member (id, pw, address_no) VALUES (#{memberLoginID}, #{memberLoginPW}, #{addressCodeNo});
+        INSERT INTO member (id, pw, address_no)
+        VALUES (#{memberLoginID}, #{memberLoginPW}, #{addressCodeNo});
     </insert>
 
     <update id = "updateMember" parameterType="Map">
-        UPDATE member set address_no = #{addressCodeNo} where id = #{id};
+        UPDATE member
+        SET address_no = #{addressCodeNo}
+        WHERE id = #{id};
     </update>
 
 </mapper>
