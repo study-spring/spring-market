@@ -11,7 +11,6 @@
         <result column="address_no" property="addressCodeNo"/>
     </resultMap>
 
-
     <select id="findById" parameterType="string" resultMap="memberResultMap">
         SELECT member_no, id, pw, address_no
         FROM member
@@ -27,14 +26,13 @@
     <update id = "updateMember" parameterType="project.springmarket.model.member.Member">
         UPDATE member
         <set>
-            <if test="memberLoginPW != null and memberLoginPW != ''">
+            <if test="memberLoginPW != null">
                 pw = #{memberLoginPW},
             </if>
-            <if test="addressCodeNo != null and addressCodeNo != 0">
+            <if test="addressCodeNo != 0">
                 address_no = #{addressCodeNo},
             </if>
         </set>
         WHERE id = #{memberLoginID};
     </update>
-
 </mapper>

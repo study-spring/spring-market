@@ -17,7 +17,7 @@ public class MemberController {
         return memberMybatisService.findById(id);
     }
 
-    @PostMapping("")
+    @PostMapping("/")
     public void insertMember(@RequestBody Member member){
         memberMybatisService.insertMember(member);
     }
