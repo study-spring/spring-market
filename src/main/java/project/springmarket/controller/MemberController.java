@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.*;
 import project.springmarket.model.member.Member;
 import project.springmarket.service.MemberMybatisService;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/members")
 @RequiredArgsConstructor
@@ -19,9 +17,14 @@ public class MemberController {
         return memberMybatisService.findById(id);
     }
 
-    @PostMapping("")
+    @PostMapping("/")
     public void insertMember(@RequestBody Member member){
         memberMybatisService.insertMember(member);
     }
-}
 
+    @PatchMapping(path = "/{id}")
+    public void updateMember(@RequestBody Member member, @PathVariable("id") String id) {
+        member.setMemberLoginID(id);
+        memberMybatisService.updateMember(member);
+    }
+}
