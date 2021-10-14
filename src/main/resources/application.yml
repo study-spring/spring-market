@@ -2,7 +2,7 @@ spring:
   datasource:
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://59.16.205.123:3306/spring_market?serverTimezone=UTC&characterEncoding=UTF-8
+      jdbc-url: jdbc:mysql://ec2-3-35-137-161.ap-northeast-2.compute.amazonaws.com:3306/spring_market?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
       username: spring_market
       password: spring1234
 
