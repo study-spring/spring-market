@@ -1,0 +1,48 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="project.springmarket.mapper.ProductMapper">
+
+    <resultMap id="products" type="project.springmarket.model.product.ProductVO">
+        <result column="product_no" property="productNo"/>
+        <result column="seller_no" property="sellerNo"/>
+        <result column="buyer_no" property="buyerNo"/>
+        <result column="product_name" property="productName"/>
+        <result column="description" property="description"/>
+        <result column="product_images" property="ProductImages"/>
+        <result column="category_no" property="categoryNo"/>
+        <result column="product_status" property="productStatus"/>
+        <result column="address_no" property="addressNo"/>
+    </resultMap>
+
+    <select id="findProducts" resultMap="products">
+        select product_no, seller_no,buyer_no,product_name,description,product_status,product_images,
+               category_no,address_no
+        from product
+        where address_no in
+              (select emd_cd
+               from address
+               where ST_intersects(
+                             (select zone_polygon
+                              from address
+                              where emd_cd = #{addressNo}), zone_polygon));
+    </select>
+
+    <select id="findProductsUsingPosition" resultMap="products">
+        select product_no, seller_no,buyer_no,product_name,description,product_status,product_images,
+               category_no,address_no
+        From product
+        Where address_no IN (select emd_cd
+                             from address
+                             where st_intersects(st_buffer(point(#{lat}, #{lng}), #{distance}),
+                                                 zone_polygon))
+    </select>
+
+    <insert id="registerProduct" parameterType="project.springmarket.model.product.ProductVO">
+        INSERT INTO product (seller_no, product_name, description, product_images,
+                             category_no, address_no)
+        values ( #{sellerNo}, #{productName}, #{description}
+               , #{productImages}, #{categoryNo}, #{addressNo})
+    </insert>
+</mapper>
