@@ -7,7 +7,7 @@ import project.springmarket.mybatis.MemberMapper;
 
 @RequiredArgsConstructor
 @Repository
-public class MemberMybatisRepository {
+public class MemberRepository {
     private final MemberMapper memberMapper;
 
     public Member findById(String id) {
