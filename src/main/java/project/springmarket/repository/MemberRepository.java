@@ -21,4 +21,8 @@ public class MemberRepository {
     public void updateMember(Member member){
         memberMapper.updateMember(member);
     }
+
+    public void deleteMember(String id){
+        memberMapper.deleteMember(id);
+    }
 }

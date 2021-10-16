@@ -22,9 +22,14 @@ public class MemberController {
         memberService.insertMember(member);
     }
 
-    @PatchMapping(path = "/{id}")
+    @PatchMapping("/{id}")
     public void updateMember(@RequestBody Member member, @PathVariable("id") String id) {
         member.setMemberLoginID(id);
         memberService.updateMember(member);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteMember(@PathVariable("id") String id){
+        memberService.deleteMember(id);
     }
 }
