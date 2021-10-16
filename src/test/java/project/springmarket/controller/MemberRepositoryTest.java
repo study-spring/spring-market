@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import project.springmarket.model.member.Member;
-import project.springmarket.repository.MemberMybatisRepository;
+import project.springmarket.repository.MemberRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,20 +18,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class MemberRepositoryTest {
 
     @Autowired
-    private MemberMybatisRepository memberMybatisRepository;
+    private MemberRepository memberRepository;
 
     Member testMember;
 
     @Before
     public void init(){
         testMember = getTestMapper();
-        memberMybatisRepository.insertMember(testMember);
+        memberRepository.insertMember(testMember);
     }
 
     // given when then
     @Test
     public void findByIdTest(){
-        Member findByIdMember = memberMybatisRepository.findById(testMember.getMemberLoginID());
+        Member findByIdMember = memberRepository.findById(testMember.getMemberLoginID());
 
         assertThat(findByIdMember.getMemberLoginID()).isEqualTo(testMember.getMemberLoginID());
         assertThat(findByIdMember.getMemberLoginPW()).isEqualTo(testMember.getMemberLoginPW());
@@ -44,9 +44,9 @@ public class MemberRepositoryTest {
         int updateAddressCode = 500;
         Member updateOnlyAddress = getTestMapper();
         updateOnlyAddress.setAddressCodeNo(updateAddressCode);
-        memberMybatisRepository.updateMember(updateOnlyAddress);
+        memberRepository.updateMember(updateOnlyAddress);
 
-        Member updateMember = memberMybatisRepository.findById(testMember.getMemberLoginID());
+        Member updateMember = memberRepository.findById(testMember.getMemberLoginID());
         assertThat(updateMember.getAddressCodeNo()).isEqualTo(updateAddressCode);
     }
 
@@ -56,9 +56,9 @@ public class MemberRepositoryTest {
         String updatePW = "updatePW";
         Member updateOnlyPW = getTestMapper();
         updateOnlyPW.setMemberLoginPW(updatePW);
-        memberMybatisRepository.updateMember(updateOnlyPW);
+        memberRepository.updateMember(updateOnlyPW);
 
-        Member updateMember = memberMybatisRepository.findById(testMember.getMemberLoginID());
+        Member updateMember = memberRepository.findById(testMember.getMemberLoginID());
         assertThat(updateMember.getMemberLoginPW()).isEqualTo(updatePW);
     }
 
@@ -70,9 +70,9 @@ public class MemberRepositoryTest {
         Member updateAll = getTestMapper();
         updateAll.setAddressCodeNo(updateAddressCode);
         updateAll.setMemberLoginPW(updatePW);
-        memberMybatisRepository.updateMember(updateAll);
+        memberRepository.updateMember(updateAll);
 
-        Member updateMember = memberMybatisRepository.findById(testMember.getMemberLoginID());
+        Member updateMember = memberRepository.findById(testMember.getMemberLoginID());
         assertThat(updateMember.getAddressCodeNo()).isEqualTo(updateAddressCode);
         assertThat(updateMember.getMemberLoginPW()).isEqualTo(updatePW);
     }

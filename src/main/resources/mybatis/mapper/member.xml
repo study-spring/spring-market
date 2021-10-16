@@ -2,7 +2,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="project.springmarket.mybatis.MemberMapper">
+<mapper namespace="project.springmarket.mapper.MemberMapper">
 
     <resultMap id="memberResultMap" type="project.springmarket.model.member.Member">
         <result column="member_no" property="memberNo"/>

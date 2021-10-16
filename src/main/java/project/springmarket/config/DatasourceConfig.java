@@ -1,7 +1,6 @@
 package project.springmarket.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -17,9 +16,7 @@ public class DatasourceConfig {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public DataSource dataSource() {
-        return DataSourceBuilder
-                .create()
-                .build();
+        return DataSourceBuilder.create().build();
     }
 
     @Bean
@@ -35,3 +32,4 @@ public class DatasourceConfig {
     public SqlSessionTemplate sqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory());
     }
+}

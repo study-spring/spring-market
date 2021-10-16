@@ -3,7 +3,7 @@ package project.springmarket.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import project.springmarket.model.member.Member;
-import project.springmarket.repository.MemberMybatisRepository;
+import project.springmarket.repository.MemberRepository;
 
 /**
  * 생성자 주입
@@ -13,19 +13,19 @@ import project.springmarket.repository.MemberMybatisRepository;
 
 @Service
 @RequiredArgsConstructor
-public class MemberMybatisService {
-    private final MemberMybatisRepository memberMybatisRepository;
+public class MemberService {
+    private final MemberRepository memberRepository;
 
     public Member findById(String id){
-        return memberMybatisRepository.findById(id);
+        return memberRepository.findById(id);
     }
 
     public void insertMember(Member member){
-        memberMybatisRepository.insertMember(member);
+        memberRepository.insertMember(member);
     }
 
     public void updateMember(Member member){
-        memberMybatisRepository.updateMember(member);
+        memberRepository.updateMember(member);
     }
 }
 

@@ -3,11 +3,11 @@ package project.springmarket.repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import project.springmarket.model.member.Member;
-import project.springmarket.mybatis.MemberMapper;
+import project.springmarket.mapper.MemberMapper;
 
 @RequiredArgsConstructor
 @Repository
-public class MemberMybatisRepository {
+public class MemberRepository {
     private final MemberMapper memberMapper;
 
     public Member findById(String id) {
