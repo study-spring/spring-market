@@ -77,6 +77,14 @@ public class MemberRepositoryTest {
         assertThat(updateMember.getMemberLoginPW()).isEqualTo(updatePW);
     }
 
+    @Test
+    public void deleteMemberTest(){
+        memberRepository.deleteMember(testMember.getMemberLoginID());
+
+        Member deletedMember = memberRepository.findById(testMember.getMemberLoginID());
+        assertThat(deletedMember).isNull();
+    }
+
     private Member getTestMapper(){
         Member testMember = new Member();
         testMember.setMemberLoginID("testCode");

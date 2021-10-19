@@ -35,4 +35,9 @@
         </set>
         WHERE id = #{memberLoginID};
     </update>
+
+    <delete id="deleteMember" parameterType="String">
+        DELETE FROM member
+        WHERE id = #{id};
+    </delete>
 </mapper>
